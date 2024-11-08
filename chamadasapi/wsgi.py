@@ -1,7 +1,5 @@
-from django.contrib import admin
-from django.urls import path, include
+import os
+from django.core.wsgi import get_wsgi_application
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api/', include('billing.urls')),
-]
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'billing_project.settings')
+application = get_wsgi_application()
